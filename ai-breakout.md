@@ -1,9 +1,48 @@
 ---
-title: Designing Components for Emulators
+title: Revisiting E3SM's Components for Emulators
 author: Peter Schwartz & Jeffrey Johnson
 theme: 
   name: catppuccin-mocha
 ---
+
+## Earth System Modeling: A System of Systems
+<!-- use E3SM's component schematic -->
+
+<!-- end_slide -->
+
+## Components: Interacting Closed Physical Systems
+<!-- same picture with hand-drawn circles around systems -->
+   - Logical decomposition of the "earth system"
+   - Two essential categories: *dynamical* and *data*
+   - Typically written in Fortran, with a few newer ones in C++
+   - One dynamical component implementation for each type (ATM, LND, OCN, ...)
+
+<!-- end_slide -->
+
+## Coupling: the "Carpet" Design Pattern
+<!-- picture of components with a magical cloud in between them -->
+   - Coupling logic implemented *for each pair of interacting components(!)* $\leftarrow N^2$
+   - Very basic "interface" (a few function calls), very little structure
+
+<!-- end_slide -->
+
+## How Does This Change in the Age of AI?
+   - What if components can be **emulators**?
+   - What if components of a given type (ATM, LND, OCN) can have **multiple implementations**?
+   - What if components contain **parameterizations** with **multiple implementations**?
+      * This or that *dynamical* parameterization (difficult but possible)
+      * This or that *emulated* parameterization (easier?)
+      * Mix and match!
+
+<!-- end_slide -->
+
+## How Does This Change in the Age of AI?
+   - What if $N$ (number of supported components) increases quickly?
+      * $N^2$ hand-crafted couplings seems... *bad*
+   - **What do we require of components**?
+   - **How do we simplify the process of coupling components**?
+
+<!-- end_slide -->
 
 ## Design Goals for Every Process:
    - Be able to replace process with emulator or toy model without changing the call site.
