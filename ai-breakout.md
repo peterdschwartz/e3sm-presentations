@@ -33,13 +33,13 @@ theme:
       * This or that *dynamical* parameterization (difficult but possible)
       * This or that *emulated* parameterization (easier?)
       * Mix and match!
+   - What if $N$ (number of supported components) increases quickly?
+      * $N^2$ hand-crafted couplings seems... *bad*
 
 <!-- end_slide -->
 
 ## How Does This Change in the Age of AI?
-   - What if $N$ (number of supported components) increases quickly?
-      * $N^2$ hand-crafted couplings seems... *bad*
-   - **What do we require of components**?
+   - **What exactly do we mean when we say "component"**?
    - **How do we simplify the process of coupling components**?
 
 <!-- end_slide -->
