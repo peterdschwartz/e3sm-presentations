@@ -17,7 +17,7 @@ theme:
 
 <!-- end_slide -->
 
-## Components: Interacting Closed Physical Systems
+## Components: Interacting Closed* Physical Systems
 <!-- same picture with hand-drawn circles around systems -->
    - Logical decomposition of the "earth system"
    - Two essential categories: *dynamical* and *data*
