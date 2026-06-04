@@ -5,6 +5,13 @@ theme:
   name: catppuccin-mocha
 ---
 
+# This Talk...
+   - Attempts to identify issues relevant to the AI group's work.
+   - **Does not** attempt to prescribe solutions to these issues!
+   - Is really about starting a conversation.
+
+<!-- end_slide -->
+
 ## Earth System Modeling: A System of Systems
 <!-- use E3SM's component schematic -->
 
