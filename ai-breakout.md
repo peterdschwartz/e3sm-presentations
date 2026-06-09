@@ -13,12 +13,12 @@ theme:
 <!-- end_slide -->
 
 ## Earth System Modeling: A System of Systems
-<!-- use E3SM's component schematic -->
+<!-- comment: use E3SM's component schematic -->
 
 <!-- end_slide -->
 
 ## Components: Interacting Closed* Physical Systems
-<!-- same picture with hand-drawn circles around systems -->
+<!-- comment: same picture with hand-drawn circles around systems -->
    - Logical decomposition of the "earth system"
    - Two essential categories: *dynamical* and *data*
    - Typically written in Fortran, with a few newer ones in C++
@@ -27,7 +27,7 @@ theme:
 <!-- end_slide -->
 
 ## Coupling: the "Carpet" Design Pattern
-<!-- picture of components with a magical cloud in between them -->
+<!-- comment: picture of components with a magical cloud in between them -->
    - Coupling logic implemented *for each pair of interacting components(!)* $\leftarrow N^2$
    - Very basic "interface" (a few function calls), very little structure
 
@@ -51,6 +51,10 @@ theme:
 
 <!-- end_slide -->
 
+<!-- column_layout: [2,4] -->
+
+<!-- column: 0 -->
+
 ## Design Goals for Every Process:
    - Be able to replace process with emulator or toy model without changing the call site.
    - Be able to run process by itself.
@@ -60,6 +64,28 @@ theme:
       * What are the configuration options?
       * How should answers change under different configs? (Metamorphic relations)
       * What are the essential __properties__ for this process?
+
+<!-- column: 1 -->
+
+```C++
+// Simply reference
+template <class P>
+concept E3SMProcess =
+  requires(P process,
+           typename P::Input input,
+           typename P::Output output,
+           typename P::Config config,
+           RunContext context) {
+    typename P::Input;
+    typename P::Output;
+    typename P::Config;
+
+    { process.init(config) } -> std::same_as<void>;
+    { process.run(input, output, context) } -> std::same_as<P::Error>;
+    { process.export_outputs(output) } -> std::same_as<void>;
+    { process.checkpoint(output) } -> std::same_as<void>;
+  };
+```
 
 <!-- end_slide -->
 
